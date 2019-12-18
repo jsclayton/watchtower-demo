@@ -2,8 +2,19 @@ version: '3.4'
 
 services:
 
-  web:
-    build:
-      context: .
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    command: watchtower-demo --debug -i 15
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  app:
+    image: jsclayton/watchtower-demo
+    container_name: watchtower-demo
+    command:
+      - node
+      - server
+    entrypoint: /app/entrypoint-2.sh
     ports:
       - 3000:3000/tcp

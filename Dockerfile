@@ -3,4 +3,4 @@ WORKDIR /app
 COPY . .
 RUN yarn
 CMD ["node", "index.js"]
-ENTRYPOINT ["/app/entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint-1.sh"]

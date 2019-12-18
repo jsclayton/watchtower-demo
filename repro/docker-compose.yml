@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+
+  watchtower:
+    image: containrrr/watchtower
+    command: app --debug -i 15
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  app:
+    image: jsclayton/watchtower-demo
+    ports:
+      - 3000:3000/tcp
